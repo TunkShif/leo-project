@@ -1,0 +1,16 @@
+{
+  "name": "@leo-project/epub-viewer",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Tristan Yang <tunkshif@foxmail.com>",
+  "main": "./dist/epub-viewer.js",
+  "types": "./dist/epub-viewer.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "lit": "^2.6.1",
+    "@leo-project/epub": "workspace:*"
+  }
+}

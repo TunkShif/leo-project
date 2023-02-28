@@ -1,0 +1,49 @@
+{
+  "build": {
+    "beforeDevCommand": "pnpm --filter @leo-project/app dev",
+    "beforeBuildCommand": "pnpm --filter @leo-project/app build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../../app/dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "leo-reader",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "one.tunkshif.leo",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "leo",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  }
+}
