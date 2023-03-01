@@ -8,6 +8,7 @@ const App: Component = () => {
     <MetaProvider>
       <Router>
         <Routes>
+          <Route path="/" element={<h1>home</h1>} />
           <Route path="/reader/:id" component={ReaderPage} />
         </Routes>
       </Router>

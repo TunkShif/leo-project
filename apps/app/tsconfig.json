@@ -6,6 +6,8 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],

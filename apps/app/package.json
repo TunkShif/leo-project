@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "@kobalte/core": "^0.6.2",
-    "@leo-project/epub": "workspace:*",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.0",
+    "@tabler/icons-solidjs": "^2.6.0",
+    "epubjs": "^0.3.93",
+    "lit": "^2.6.1",
     "solid-js": "^1.6.11"
   }
 }
