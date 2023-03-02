@@ -1,23 +1,25 @@
-import type { RenderedBook } from "@/libs/book"
+import { createBook, RenderedBook } from "@/libs/book"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
 import { Component, createEffect, createSignal, onCleanup, onMount } from "solid-js"
 import { useReaderContext } from "./context"
-import "./element"
-import type { EpubViewerElement, RenderedEvent } from "./element"
 
 const Viewer: Component = () => {
-  let ref: EpubViewerElement
+  let ref: HTMLDivElement
 
   const [book, setBook] = createSignal<RenderedBook>()
   const { theme } = useReaderContext()!
 
   onMount(() => {
-    ref.addEventListener("ready", (e) => setBook((e as RenderedEvent).detail.book))
+    createBook("http://localhost:8000/epub/content.opf").render(ref).then(setBook)
   })
 
   createEffect(() => {
     const fontSize = theme.fontSize()
     book()?.theme.setFontSize(`${fontSize}%`)
+  })
+
+  onCleanup(() => {
+    book()?.destroy()
   })
 
   return (
@@ -29,11 +31,7 @@ const Viewer: Component = () => {
         <IconChevronLeft />
       </button>
       <div class="absolute inset-12">
-        <epub-viewer
-          ref={ref!}
-          class="h-full w-full"
-          src="http://localhost:8000/epub/content.opf"
-        ></epub-viewer>
+        <div id="viewer" class="h-full w-full" ref={ref!}></div>
       </div>
       <button
         class="fixed top-1/2 right-4 -translate-y-1/2"

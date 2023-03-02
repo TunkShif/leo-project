@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "vite",
     "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "build": "vite build"
   },
   "devDependencies": {
     "@types/node": "^18.7.10",
@@ -23,7 +21,6 @@
     "@solidjs/router": "^0.7.0",
     "@tabler/icons-solidjs": "^2.6.0",
     "epubjs": "^0.3.93",
-    "lit": "^2.6.1",
     "solid-js": "^1.6.11"
   }
 }
