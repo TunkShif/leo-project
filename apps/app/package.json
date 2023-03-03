@@ -33,6 +33,7 @@
     "@kobalte/core": "^0.6.2",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.0",
+    "@tabler/icons-react": "^2.7.0",
     "@tabler/icons-solidjs": "^2.6.0",
     "class-variance-authority": "^0.4.0",
     "epubjs": "^0.3.93",

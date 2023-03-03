@@ -37,3 +37,11 @@ export const Subtle: Story = {
     children: "Button"
   }
 }
+
+export const Ghost: Story = {
+  args: {
+    size: "base",
+    variant: "ghost",
+    children: "Button"
+  }
+}
