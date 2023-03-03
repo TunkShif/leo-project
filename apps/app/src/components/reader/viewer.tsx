@@ -1,6 +1,7 @@
 import { createBook, RenderedBook } from "@/libs/book"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
 import { Component, createEffect, createSignal, onCleanup, onMount } from "solid-js"
+import IconButton from "../ui/icon-button"
 import { useReaderContext } from "./context"
 
 const Viewer: Component = () => {
@@ -24,21 +25,25 @@ const Viewer: Component = () => {
 
   return (
     <>
-      <button
-        class="fixed top-1/2 left-4 -translate-y-1/2 "
+      <IconButton
+        class="fixed top-1/2 left-4 -translate-y-1/2 active:-translate-y-[calc(50%-0.125rem)]"
+        variant="ghost"
+        label="Previous Page"
         onClick={() => book()?.pagination.prev()}
       >
         <IconChevronLeft />
-      </button>
+      </IconButton>
       <div class="absolute inset-12">
         <div id="viewer" class="h-full w-full" ref={ref!}></div>
       </div>
-      <button
-        class="fixed top-1/2 right-4 -translate-y-1/2"
+      <IconButton
+        class="fixed top-1/2 right-4 -translate-y-1/2 active:-translate-y-[calc(50%-0.125rem)]"
+        variant="ghost"
+        label="Next Page"
         onClick={() => book()?.pagination.next()}
       >
         <IconChevronRight />
-      </button>
+      </IconButton>
     </>
   )
 }
