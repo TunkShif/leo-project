@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority"
-import { Component, JSX, splitProps } from "solid-js"
+import { JSX, splitProps, type Component } from "solid-js"
 import { twMerge } from "tailwind-merge"
 
 const button = cva(

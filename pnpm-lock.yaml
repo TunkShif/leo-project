@@ -23,7 +23,6 @@ importers:
       '@storybook/addon-links': ^7.0.0-beta.59
       '@storybook/blocks': ^7.0.0-alpha.8
       '@storybook/testing-library': ^0.0.14-next.1
-      '@tabler/icons-react': ^2.7.0
       '@tabler/icons-solidjs': ^2.6.0
       '@types/node': ^18.7.10
       autoprefixer: ^10.4.13
@@ -46,7 +45,6 @@ importers:
       '@kobalte/core': 0.6.2_solid-js@1.6.11
       '@solidjs/meta': 0.28.2_solid-js@1.6.11
       '@solidjs/router': 0.7.0_solid-js@1.6.11
-      '@tabler/icons-react': 2.7.0_react@18.2.0
       '@tabler/icons-solidjs': 2.6.0_solid-js@1.6.11
       class-variance-authority: 0.4.0_typescript@4.9.5
       epubjs: 0.3.93
@@ -3054,16 +3052,6 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@tabler/icons-react/2.7.0_react@18.2.0:
-    resolution: {integrity: sha512-WV2ZwMUuZN9QcCX4RPg9+G+ycUgoItzOWVCCQYVWbYKV581fH8szM2KVaQHQhMbttL4JYtOgf4ColJIDwsIgdw==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@tabler/icons': 2.7.0
-      prop-types: 15.8.1
-      react: 18.2.0
-    dev: false
-
   /@tabler/icons-solidjs/2.6.0_solid-js@1.6.11:
     resolution: {integrity: sha512-9V13UZG1V1kCMcFi8BZs2vewBaWt8wmweiQKOvkqqxQSuel0j8Fe9DIaVx7xrqfvKYSOrwuADG/Ps/8S7XDP+Q==}
     peerDependencies:
@@ -3075,10 +3063,6 @@ packages:
 
   /@tabler/icons/2.6.0:
     resolution: {integrity: sha512-rflJyQSsu2iV6QgrA7ZdGaikSTdIVpXlem0jBIcx18OKg0ZJmLojmrhNo7DpOW7bCT4Hr2r6jcpq8uSYrinqZw==}
-    dev: false
-
-  /@tabler/icons/2.7.0:
-    resolution: {integrity: sha512-mSjUKhwN5fJHI9yITqFn9GXGnsJ4gBAyQDWyP4Ev5fk6hD78G7u6cHEF1KARr5FOOdiIKSZWCzNzUzyLhiNPrg==}
     dev: false
 
   /@tauri-apps/api/1.2.0:
@@ -5454,6 +5438,7 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /js-yaml/3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -5616,6 +5601,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /lru-cache/5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -5932,6 +5918,7 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /object-hash/3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
@@ -6354,6 +6341,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: true
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -6474,6 +6462,7 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -6484,6 +6473,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
