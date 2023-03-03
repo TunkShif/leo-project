@@ -2,8 +2,8 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { JSX, splitProps, type Component } from "solid-js"
 import { twMerge } from "tailwind-merge"
 
-const iconButton = cva(
-  "inline-flex justify-center items-center rounded-[0.25em] active:translate-y-0.5 transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
+export const iconButton = cva(
+  "inline-flex justify-center items-center rounded-[0.25rem] active:translate-y-0.5 transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
   {
     variants: {
       variant: {
