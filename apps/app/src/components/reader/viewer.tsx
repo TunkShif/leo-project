@@ -1,22 +1,15 @@
 import { useReaderContext } from "@/components/reader/context"
 import IconButton from "@/components/ui/icon-button"
-import { createBook, RenderedBook } from "@/libs/book"
+import { createBook } from "@/libs/book"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
-import { Component, createEffect, createSignal, onCleanup, onMount } from "solid-js"
+import { Component, onCleanup, onMount } from "solid-js"
 
 const Viewer: Component = () => {
   let ref: HTMLDivElement
-
-  const [book, setBook] = createSignal<RenderedBook>()
-  const { theme } = useReaderContext()!
+  const { book, setBook } = useReaderContext()!
 
   onMount(() => {
     createBook("http://localhost:8000/epub/content.opf").render(ref).then(setBook)
-  })
-
-  createEffect(() => {
-    const fontSize = theme.fontSize()
-    book()?.theme.setFontSize(`${fontSize}%`)
   })
 
   onCleanup(() => {
