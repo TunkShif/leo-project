@@ -1,8 +1,8 @@
+import { useReaderContext } from "@/components/reader/context"
+import IconButton from "@/components/ui/icon-button"
 import { createBook, RenderedBook } from "@/libs/book"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
 import { Component, createEffect, createSignal, onCleanup, onMount } from "solid-js"
-import IconButton from "../ui/icon-button"
-import { useReaderContext } from "./context"
 
 const Viewer: Component = () => {
   let ref: HTMLDivElement

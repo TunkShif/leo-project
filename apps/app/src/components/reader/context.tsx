@@ -1,5 +1,5 @@
-import { createContext, createSignal, useContext } from "solid-js"
 import type { Accessor, Component, JSX } from "solid-js"
+import { createContext, createSignal, useContext } from "solid-js"
 
 const FONT_SIZE_STEP = 25
 

@@ -1,6 +1,6 @@
+import IconButton from "@/components/ui/icon-button"
 import { IconCopy } from "@tabler/icons-solidjs"
 import type { Meta, StoryObj } from "storybook-solidjs"
-import IconButton from "./icon-button"
 
 const meta = {
   title: "Inputs/IconButton",
