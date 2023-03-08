@@ -1,6 +1,6 @@
 import { IconCopy } from "@tabler/icons-solidjs"
 import type { Meta, StoryObj } from "storybook-solidjs"
-import IconButton from "./icon-button"
+import { IconButton } from "./icon-button"
 
 const meta = {
   title: "Inputs/IconButton",
@@ -32,7 +32,7 @@ export const Solid: Story = {
   }
 }
 
-export const Subtle: Story = {
+export const Outline: Story = {
   args: {
     size: "base",
     variant: "outline",

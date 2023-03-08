@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs"
-import Button from "./button"
+import { Button } from "./button"
 
 const meta = {
   title: "Inputs/Button",
@@ -30,7 +30,7 @@ export const Solid: Story = {
   }
 }
 
-export const Subtle: Story = {
+export const Outline: Story = {
   args: {
     size: "base",
     variant: "outline",

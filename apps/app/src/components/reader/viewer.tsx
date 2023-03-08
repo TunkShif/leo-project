@@ -1,5 +1,5 @@
 import { useReaderContext } from "@/components/reader/context"
-import IconButton from "@/components/ui/icon-button"
+import { IconButton } from "@/components/ui"
 import { createBook } from "@/libs/book"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
 import { Component, onCleanup, onMount } from "solid-js"

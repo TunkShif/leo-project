@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+  * [TODO) Add theme tokens
+  */
+
 @layer base {
   body {
     @apply text-slate-800;

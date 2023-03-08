@@ -1,4 +1,6 @@
+import path from "path"
 import type { StorybookConfig } from "storybook-solidjs-vite"
+
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -12,6 +14,16 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag"
+  },
+  viteFinal(config) {
+    return {
+      ...config,
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "../src/")
+        }
+      }
+    }
   }
 }
 export default config
