@@ -7,7 +7,11 @@ const meta = {
   tags: ["autodoc"],
   argTypes: {
     variant: {
-      options: ["primary"],
+      options: ["solid", "outline", "ghost"],
+      control: { type: "select" }
+    },
+    intent: {
+      options: ["normal", "primary", "danger"],
       control: { type: "select" }
     },
     size: {
@@ -26,6 +30,7 @@ export const Solid: Story = {
   args: {
     size: "base",
     variant: "solid",
+    intent: "normal",
     children: "Button"
   }
 }
@@ -34,6 +39,7 @@ export const Outline: Story = {
   args: {
     size: "base",
     variant: "outline",
+    intent: "normal",
     children: "Button"
   }
 }
@@ -42,6 +48,7 @@ export const Ghost: Story = {
   args: {
     size: "base",
     variant: "ghost",
+    intent: "normal",
     children: "Button"
   }
 }
