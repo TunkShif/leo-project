@@ -22,9 +22,9 @@ export const button = cva(
         none: ""
       },
       size: {
-        small: "px-2 h-7 text-sm",
-        base: "px-3 h-9",
-        large: "px-4 h-11 text-lg",
+        small: "px-2 h-7 text-xs",
+        base: "px-3 h-9 text-sm",
+        large: "px-4 h-11 text-base",
         none: ""
       }
     },
