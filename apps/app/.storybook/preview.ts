@@ -5,6 +5,11 @@ const preview = {
     backgrounds: {
       default: "light"
     },
+    darkMode: {
+      stylePreview: true,
+      classTarget: "html",
+      darkClass: "dark"
+    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
