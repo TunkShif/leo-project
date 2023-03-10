@@ -6,12 +6,12 @@ export const button = cva(
   `inline-flex justify-center items-center font-medium rounded-sm
   transition-colors duration-200 ease-in-out focus-visible:outline-none
   focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800
-   disabled:pointer-events-none disabled:opacity-60`,
+   disabled:pointer-events-none disabled:opacity-50`,
   {
     variants: {
       variant: {
         solid: "shadow-sm",
-        outline: "border bg-transparent shadow-sm",
+        outline: "border bg-white dark:bg-transparent shadow-sm dark:shadow-inner",
         ghost: "bg-transparent",
         none: ""
       },
@@ -37,12 +37,14 @@ export const button = cva(
       {
         variant: "outline",
         intent: "normal",
-        class: "border-slate-900/20 text-slate-800 hover:bg-slate-100 active:bg-slate-200"
+        class: `border-slate-900/20 dark:border-white/20 text-slate-800 dark:text-slate-200
+                hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-800`
       },
       {
         variant: "ghost",
         intent: "normal",
-        class: "text-slate-800 hover:bg-slate-100 active:bg-slate-200"
+        class:
+          "text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-800"
       },
       {
         variant: "solid",
@@ -52,12 +54,14 @@ export const button = cva(
       {
         variant: "outline",
         intent: "primary",
-        class: "border-autumn-900/20 text-autumn-800 hover:bg-autumn-50 active:bg-autumn-100"
+        class: `border-autumn-900/20 dark:border-autumn-100/20 text-autumn-800 dark:text-autumn-300
+                hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-900`
       },
       {
         variant: "ghost",
         intent: "primary",
-        class: "text-autumn-800 hover:bg-autumn-50 active:bg-autumn-100"
+        class:
+          "text-autumn-800 dark:text-autumn-300 hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-900"
       },
       {
         variant: "solid",
@@ -67,12 +71,14 @@ export const button = cva(
       {
         variant: "outline",
         intent: "danger",
-        class: "border-tomato-900/20 text-tomato-800 hover:bg-tomato-100 active:bg-tomato-200"
+        class: `border-tomato-900/20 dark:border-tomato-100/20 text-tomato-800 dark:text-tomato-400 dark:hover:text-tomato-300
+                hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-900`
       },
       {
         variant: "ghost",
         intent: "danger",
-        class: "text-tomato-800 hover:bg-tomato-100 active:bg-tomato-200"
+        class:
+          "text-tomato-800 dark:text-tomato-400 dark:hover:text-tomato-300 hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-900"
       }
     ],
     defaultVariants: {
