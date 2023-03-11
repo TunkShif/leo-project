@@ -3,7 +3,10 @@ import "../src/index.css"
 const preview = {
   parameters: {
     backgrounds: {
-      default: "light"
+      values: [
+        { name: "white", value: "#ffffff" },
+        { name: "slate", value: "#0f172a" }
+      ]
     },
     darkMode: {
       stylePreview: true,

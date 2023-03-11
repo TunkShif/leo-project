@@ -3,15 +3,18 @@ import { DropdownMenu as DropdownMenuPrimitives } from "@kobalte/core"
 
 const content = /* tw */ `group p-2 min-w-[10rem] z-50 bg-white
                 border border-slate-900/10 text-slate-800
-                rounded-sm shadow-sm overflow-hidden`
+                rounded-sm shadow-sm overflow-hidden
+                dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10
+                dark:bg-slate-800`
 
-const item = /* tw */ `relative flex items-center px-2 group-data-[left-slot]:pl-6 py-1.5 h-8 text-sm text-slate-800 rounded
-             outline-none focus:bg-slate-100 ui-highlighted:bg-slate-100 ui-disabled:opacity-50
-             leading-none cursor-default ui-disabled:cursor-not-allowed select-none`
+const item = /* tw */ `relative flex items-center px-2 group-data-[left-slot]:pl-6 py-1.5 h-8
+             text-sm text-slate-800 dark:text-slate-200 leading-none rounded outline-none
+             focus:bg-slate-100 ui-highlighted:bg-slate-100 dark:ui-highlighted:bg-slate-700
+             ui-disabled:opacity-50 ui-disabled:cursor-not-allowed cursor-default select-none`
 
-const separator = /* tw */ `-mx-2 my-1 h-px bg-slate-100`
+const separator = /* tw */ `-mx-2 my-1.5 h-px bg-slate-200 dark:bg-slate-700 border-none`
 
-const label = /* tw */ `inline-block px-2 py-1.5 h-8 text-sm font-medium text-slate-500 select-none`
+const label = /* tw */ `inline-block px-2 py-1.5 h-8 text-sm font-medium text-slate-500 dark:text-slate-400 select-none`
 
 const indicator = /* tw */ `absolute inline-flex justify-center items-center w-6 left-0`
 
