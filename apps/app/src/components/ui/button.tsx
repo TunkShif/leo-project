@@ -1,4 +1,4 @@
-import { Button as ButtonPrimitives } from "@kobalte/core"
+import { Button as KButton } from "@kobalte/core"
 import { cva, type VariantProps } from "class-variance-authority"
 import { splitProps, type Component, type ComponentProps } from "solid-js"
 import { twMerge } from "tailwind-merge"
@@ -38,14 +38,14 @@ export const button = cva(
       {
         variant: "outline",
         intent: "normal",
-        class: `border-slate-900/20 dark:border-white/20 text-slate-800 dark:text-slate-200
-                hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-800`
+        class: `border-slate-900/20 dark:border-white/20 text-strong
+                hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-600`
       },
       {
         variant: "ghost",
         intent: "normal",
         class:
-          "text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-800"
+          "text-strong hover:bg-slate-100 dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-600"
       },
       {
         variant: "solid",
@@ -55,14 +55,14 @@ export const button = cva(
       {
         variant: "outline",
         intent: "primary",
-        class: `border-autumn-900/20 dark:border-autumn-100/20 text-autumn-800 dark:text-autumn-300
-                hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-900`
+        class: `border-autumn-900/20 dark:border-autumn-100/20 text-autumn-800 dark:text-autumn-300 dark:hover:text-autumn-200
+                hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-700`
       },
       {
         variant: "ghost",
         intent: "primary",
-        class:
-          "text-autumn-800 dark:text-autumn-300 hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-900"
+        class: `text-autumn-800 dark:text-autumn-300 dark:hover:text-autumn-200
+                hover:bg-autumn-50 dark:hover:bg-autumn-800 active:bg-autumn-100 dark:active:bg-autumn-700`
       },
       {
         variant: "solid",
@@ -73,13 +73,13 @@ export const button = cva(
         variant: "outline",
         intent: "danger",
         class: `border-tomato-900/20 dark:border-tomato-100/20 text-tomato-800 dark:text-tomato-400 dark:hover:text-tomato-300
-                hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-900`
+                hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-700`
       },
       {
         variant: "ghost",
         intent: "danger",
-        class:
-          "text-tomato-800 dark:text-tomato-400 dark:hover:text-tomato-300 hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-900"
+        class: `text-tomato-800 dark:text-tomato-400 dark:hover:text-tomato-300
+                hover:bg-tomato-100 dark:hover:bg-tomato-800 active:bg-tomato-200 dark:active:bg-tomato-700`
       }
     ],
     defaultVariants: {
@@ -90,7 +90,7 @@ export const button = cva(
   }
 )
 
-type ButtonProps = VariantProps<typeof button> & ComponentProps<typeof ButtonPrimitives.Root>
+type ButtonProps = VariantProps<typeof button> & ComponentProps<typeof KButton.Root>
 
 export const Button: Component<ButtonProps> = (props) => {
   const [local, rest] = splitProps(props, ["class", "variant", "intent", "size", "children"])
@@ -100,8 +100,8 @@ export const Button: Component<ButtonProps> = (props) => {
   )
 
   return (
-    <ButtonPrimitives.Root class={classes} {...rest}>
+    <KButton.Root class={classes} {...rest}>
       {local.children}
-    </ButtonPrimitives.Root>
+    </KButton.Root>
   )
 }

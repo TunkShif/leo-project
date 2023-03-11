@@ -1,4 +1,4 @@
-import { Button as ButtonPrimitives } from "@kobalte/core"
+import { Button as KButton } from "@kobalte/core"
 import { cva, type VariantProps } from "class-variance-authority"
 import { splitProps, type Component, type ComponentProps } from "solid-js"
 import { twMerge } from "tailwind-merge"
@@ -19,7 +19,7 @@ export const iconButton = cva("font-normal", {
 })
 
 type IconButtonProps = VariantProps<typeof button> &
-  ComponentProps<typeof ButtonPrimitives.Root> & {
+  ComponentProps<typeof KButton.Root> & {
     label: string
   }
 
@@ -39,9 +39,9 @@ export const IconButton: Component<IconButtonProps> = (props: IconButtonProps) =
   )
 
   return (
-    <ButtonPrimitives.Root class={classes} {...rest}>
+    <KButton.Root class={classes} {...rest}>
       <span class="sr-only">{local.label}</span>
       {local.children}
-    </ButtonPrimitives.Root>
+    </KButton.Root>
   )
 }
