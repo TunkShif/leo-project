@@ -2,18 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
-  * [TODO) Add theme tokens
-  */
-
 @layer base {
   body {
-    @apply text-slate-700 dark:text-slate-400;
+    @apply bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-400;
   }
 }
 
 @layer utilities {
+  .text-plain {
+    @apply text-slate-700 dark:text-slate-400;
+  }
+
   .text-strong {
     @apply text-slate-800 dark:text-slate-200;
+  }
+
+  .text-subtle {
+    @apply text-slate-500 dark:text-slate-400;
   }
 }

@@ -1,6 +1,6 @@
 import { styled } from "@/utils/styling"
 import { Popover as KPopover } from "@kobalte/core"
-import { content } from "./shared"
+import { content } from "./styles"
 
 export const Popover = KPopover.Root
 

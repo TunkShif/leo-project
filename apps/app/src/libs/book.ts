@@ -2,6 +2,8 @@ import Epub from "epubjs"
 import type { NavItem, Rendition } from "epubjs"
 import type { Annotation } from "epubjs/types/annotations"
 
+export type { NavItem } from "epubjs"
+
 export type AnnotationType = "highlight" | "underline" | "mark"
 
 export type BookMetadata = {

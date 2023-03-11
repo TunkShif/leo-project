@@ -1,4 +1,4 @@
-import { Component, splitProps } from "solid-js"
+import { splitProps, type Component } from "solid-js"
 import { twMerge } from "tailwind-merge"
 
 type Styled = <ComponentType extends Component<any>>(

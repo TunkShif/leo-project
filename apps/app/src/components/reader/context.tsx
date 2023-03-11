@@ -1,4 +1,4 @@
-import { BookMetadata, RenderedBook } from "@/libs/book"
+import { RenderedBook } from "@/libs/book"
 import { Accessor, Component, createEffect, createResource, JSX, Resource, Setter } from "solid-js"
 import { createContext, createSignal, useContext } from "solid-js"
 
@@ -7,7 +7,6 @@ const FONT_SIZE_STEP = 25
 type Context = {
   book: Accessor<RenderedBook | undefined>
   setBook: Setter<RenderedBook | undefined>
-  metadata: Resource<BookMetadata>
   theme: {
     increaseFontSize: () => void
     decreaseFontSize: () => void
@@ -23,8 +22,6 @@ const ReaderContext = createContext<Context>()
 export const ReaderProvider: Component<Props> = (props) => {
   const [book, setBook] = createSignal<RenderedBook>()
   const [fontSize, setFontSize] = createSignal(100)
-
-  const [metadata] = createResource(book, (book) => book.metadata)
 
   const increaseFontSize = () => {
     if (fontSize() >= 200) return
@@ -45,7 +42,6 @@ export const ReaderProvider: Component<Props> = (props) => {
       value={{
         book,
         setBook,
-        metadata,
         theme: {
           increaseFontSize,
           decreaseFontSize
@@ -57,4 +53,4 @@ export const ReaderProvider: Component<Props> = (props) => {
   )
 }
 
-export const useReaderContext = () => useContext(ReaderContext)
+export const useReaderContext = () => useContext(ReaderContext)!
