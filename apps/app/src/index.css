@@ -8,6 +8,12 @@
 
 @layer base {
   body {
-    @apply text-slate-800;
+    @apply text-slate-700 dark:text-slate-400;
+  }
+}
+
+@layer utilities {
+  .text-strong {
+    @apply text-slate-800 dark:text-slate-200;
   }
 }

@@ -1,14 +1,9 @@
 import { styled } from "@/utils/styling"
-import { DropdownMenu as DropdownMenuPrimitives } from "@kobalte/core"
-
-const content = /* tw */ `group p-2 min-w-[10rem] z-50 bg-white
-                border border-slate-900/10 text-slate-800
-                rounded-sm shadow-sm overflow-hidden
-                dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10
-                dark:bg-slate-800`
+import { DropdownMenu as KDropdownMenu } from "@kobalte/core"
+import { content } from "./shared"
 
 const item = /* tw */ `relative flex items-center px-2 group-data-[left-slot]:pl-6 py-1.5 h-8
-             text-sm text-slate-800 dark:text-slate-200 leading-none rounded outline-none
+             text-sm text-strong leading-none rounded outline-none
              focus:bg-slate-100 ui-highlighted:bg-slate-100 dark:ui-highlighted:bg-slate-700
              ui-disabled:opacity-50 ui-disabled:cursor-not-allowed cursor-default select-none`
 
@@ -18,40 +13,40 @@ const label = /* tw */ `inline-block px-2 py-1.5 h-8 text-sm font-medium text-sl
 
 const indicator = /* tw */ `absolute inline-flex justify-center items-center w-6 left-0`
 
-export const DropdownMenu = DropdownMenuPrimitives.Root
+export const DropdownMenu = KDropdownMenu.Root
 
-export const DropdownMenuArrow = styled(DropdownMenuPrimitives.Arrow, "z-50")
+export const DropdownMenuArrow = KDropdownMenu.Arrow
 
-export const DropdownMenuCheckboxItem = styled(DropdownMenuPrimitives.CheckboxItem, item)
+export const DropdownMenuCheckboxItem = styled(KDropdownMenu.CheckboxItem, item)
 
-export const DropdownMenuContent = styled(DropdownMenuPrimitives.Content, content)
+export const DropdownMenuContent = styled(KDropdownMenu.Content, content, "min-w-[10rem]")
 
-export const DropdownMenuGroup = DropdownMenuPrimitives.Group
+export const DropdownMenuGroup = KDropdownMenu.Group
 
-export const DropdownMenuGroupLabel = styled(DropdownMenuPrimitives.GroupLabel, label)
+export const DropdownMenuGroupLabel = styled(KDropdownMenu.GroupLabel, label)
 
-export const DropdownMenuIcon = DropdownMenuPrimitives.Icon
+export const DropdownMenuIcon = KDropdownMenu.Icon
 
-export const DropdownMenuItem = styled(DropdownMenuPrimitives.Item, item)
+export const DropdownMenuItem = styled(KDropdownMenu.Item, item)
 
-export const DropdownMenuItemDescription = DropdownMenuPrimitives.ItemDescription
+export const DropdownMenuItemDescription = KDropdownMenu.ItemDescription
 
-export const DropdownMenuItemIndicator = styled(DropdownMenuPrimitives.ItemIndicator, indicator)
+export const DropdownMenuItemIndicator = styled(KDropdownMenu.ItemIndicator, indicator)
 
-export const DropdownMenuItemLabel = DropdownMenuPrimitives.ItemLabel
+export const DropdownMenuItemLabel = KDropdownMenu.ItemLabel
 
-export const DropdownMenuPortal = DropdownMenuPrimitives.Portal
+export const DropdownMenuPortal = KDropdownMenu.Portal
 
-export const DropdownMenuRadioGroup = DropdownMenuPrimitives.RadioGroup
+export const DropdownMenuRadioGroup = KDropdownMenu.RadioGroup
 
-export const DropdownMenuRadioItem = styled(DropdownMenuPrimitives.RadioItem, item)
+export const DropdownMenuRadioItem = styled(KDropdownMenu.RadioItem, item)
 
-export const DropdownMenuSeparator = styled(DropdownMenuPrimitives.Separator, separator)
+export const DropdownMenuSeparator = styled(KDropdownMenu.Separator, separator)
 
-export const DropdownMenuSub = DropdownMenuPrimitives.Sub
+export const DropdownMenuSub = KDropdownMenu.Sub
 
-export const DropdownMenuSubContent = styled(DropdownMenuPrimitives.SubContent, content)
+export const DropdownMenuSubContent = styled(KDropdownMenu.SubContent, content, "min-w-[10rem]")
 
-export const DropdownMenuSubTrigger = styled(DropdownMenuPrimitives.SubTrigger, item)
+export const DropdownMenuSubTrigger = styled(KDropdownMenu.SubTrigger, item)
 
-export const DropdownMenuTrigger = DropdownMenuPrimitives.Trigger
+export const DropdownMenuTrigger = KDropdownMenu.Trigger
