@@ -44,7 +44,6 @@ export const DropdownMenuPortal = DropdownMenuPrimitives.Portal
 
 export const DropdownMenuRadioGroup = DropdownMenuPrimitives.RadioGroup
 
-// @ts-ignore Why is the compiler complaining here, WTF?
 export const DropdownMenuRadioItem = styled(DropdownMenuPrimitives.RadioItem, item)
 
 export const DropdownMenuSeparator = styled(DropdownMenuPrimitives.Separator, separator)

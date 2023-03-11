@@ -1,3 +1,4 @@
+import { As } from "@kobalte/core"
 import {
   IconCheck,
   IconChevronDown,
@@ -34,11 +35,13 @@ const DropdownMenuExample = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger variant="outline" as={Button}>
-        <span class="mr-1.5">Git Settings</span>
-        <DropdownMenuIcon>
-          <IconChevronDown size={20} />
-        </DropdownMenuIcon>
+      <DropdownMenuTrigger asChild>
+        <As component={Button} variant="outline">
+          <span class="mr-1.5">Git Settings</span>
+          <DropdownMenuIcon>
+            <IconChevronDown size={20} />
+          </DropdownMenuIcon>
+        </As>
       </DropdownMenuTrigger>
 
       <DropdownMenuPortal>
