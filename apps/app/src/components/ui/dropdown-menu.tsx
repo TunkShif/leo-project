@@ -4,7 +4,7 @@ import { content, item, label, separator } from "./styles"
 
 const items = [
   item,
-  "group-data-[left-slot]:pl-6 ui-highlighted:bg-slate-100 dark:ui-highlighted:bg-slate-700 ui-disabled:opacity-50 ui-disabled:cursor-not-allowed select-none"
+  "group-data-[left-slot]/root:pl-6 ui-highlighted:bg-slate-100 dark:ui-highlighted:bg-slate-700 ui-disabled:opacity-50 ui-disabled:cursor-not-allowed select-none"
 ]
 
 const indicator = /* tw */ `absolute inline-flex justify-center items-center w-6 left-0`

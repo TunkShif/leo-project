@@ -10,6 +10,9 @@ module.exports = {
       xs: "0.125rem",
       sm: "0.25rem"
     },
+    fontFamily: {
+      sans: ['"Inter var"', ...defaultTheme.fontFamily.sans]
+    },
     extend: {
       colors: {
         autumn: {
