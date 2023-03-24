@@ -18,8 +18,12 @@
     "@storybook/testing-library": "0.0.14-next.1",
     "@storybook/theming": "^6.5.16",
     "@types/node": "^18.15.5",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
     "autoprefixer": "^10.4.14",
     "babel-preset-solid": "^1.6.13",
+    "eslint": "^8.36.0",
+    "eslint-plugin-solid": "^0.11.0",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,6 +37,7 @@
     "vite-plugin-solid": "^2.6.1"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.2.5",
     "@kobalte/core": "^0.7.4",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.1",
