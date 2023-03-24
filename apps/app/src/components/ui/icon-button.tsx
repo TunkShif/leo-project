@@ -32,14 +32,15 @@ export const IconButton: Component<IconButtonProps> = (props: IconButtonProps) =
     "label",
     "children"
   ])
-  const classes = twMerge(
-    button({ variant: local.variant, intent: local.intent, size: "none" }),
-    iconButton({ size: local.size }),
-    local.class
-  )
+  const classes = () =>
+    twMerge(
+      button({ variant: local.variant, intent: local.intent, size: "none" }),
+      iconButton({ size: local.size }),
+      local.class
+    )
 
   return (
-    <KButton.Root class={classes} {...rest}>
+    <KButton.Root class={classes()} {...rest}>
       <span class="sr-only">{local.label}</span>
       {local.children}
     </KButton.Root>

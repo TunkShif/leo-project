@@ -94,13 +94,11 @@ type ButtonProps = VariantProps<typeof button> & ComponentProps<typeof KButton.R
 
 export const Button: Component<ButtonProps> = (props) => {
   const [local, rest] = splitProps(props, ["class", "variant", "intent", "size", "children"])
-  const classes = twMerge(
-    button({ variant: local.variant, intent: local.intent, size: local.size }),
-    local.class
-  )
+  const classes = () =>
+    twMerge(button({ variant: local.variant, intent: local.intent, size: local.size }), local.class)
 
   return (
-    <KButton.Root class={classes} {...rest}>
+    <KButton.Root class={classes()} {...rest}>
       {local.children}
     </KButton.Root>
   )
