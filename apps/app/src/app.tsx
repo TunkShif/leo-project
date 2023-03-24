@@ -1,6 +1,6 @@
 import ReaderPage from "@/pages/reader"
 import { MetaProvider } from "@solidjs/meta"
-import { Route, Router, Routes } from "@solidjs/router"
+import { A, Route, Router, Routes } from "@solidjs/router"
 import type { Component } from "solid-js"
 
 const App: Component = () => {
@@ -8,7 +8,15 @@ const App: Component = () => {
     <MetaProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<h1>home</h1>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <h1>home</h1>
+                <A href="/reader/test">book</A>
+              </>
+            }
+          />
           <Route path="/reader/:id" component={ReaderPage} />
         </Routes>
       </Router>

@@ -1,4 +1,5 @@
-import { useReaderContext } from "@/components/reader/context"
+import { useBook } from "@/components/reader/book"
+import { useViewerStore } from "@/components/reader/stores"
 import Contents from "@/components/reader/toolbar/contents"
 import { IconButton } from "@/components/ui"
 import { As } from "@kobalte/core"
@@ -7,8 +8,21 @@ import { IconArrowNarrowLeft, IconMinus, IconPlus, IconSettings } from "@tabler/
 import { createResource } from "solid-js"
 
 const Toolbar = () => {
-  const { book, theme } = useReaderContext()
+  const [book] = useBook()
+  const [viewerStore, setViewerStore] = useViewerStore()
+  const fontSize = () => viewerStore.fontSize
+
   const [metadata] = createResource(book, (book) => book.metadata)
+
+  const handleIncreaseFontSize = () => {
+    if (fontSize() >= 200) return
+    setViewerStore("fontSize", (prev) => prev + 25)
+  }
+
+  const handleDecreaseFontSize = () => {
+    if (fontSize() <= 75) return
+    setViewerStore("fontSize", (prev) => prev - 25)
+  }
 
   return (
     <header
@@ -32,10 +46,10 @@ const Toolbar = () => {
         <IconButton variant="ghost" label="Reader Settings">
           <IconSettings />
         </IconButton>
-        <IconButton variant="ghost" label="Increase Reader Font" onClick={theme.increaseFontSize}>
+        <IconButton variant="ghost" label="Increase Reader Font" onClick={handleIncreaseFontSize}>
           <IconPlus />
         </IconButton>
-        <IconButton variant="ghost" label="Increase Reader Font" onClick={theme.decreaseFontSize}>
+        <IconButton variant="ghost" label="Increase Reader Font" onClick={handleDecreaseFontSize}>
           <IconMinus />
         </IconButton>
       </div>

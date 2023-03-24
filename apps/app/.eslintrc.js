@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:solid/recommended"
+    "plugin:solid/typescript"
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -15,5 +15,9 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["@typescript-eslint", "solid"],
-  rules: {}
+  rules: {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
 }

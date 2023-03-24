@@ -5,6 +5,8 @@
 @layer base {
   body {
     @apply bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 

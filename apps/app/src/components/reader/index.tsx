@@ -1,16 +1,18 @@
-import { ReaderProvider } from "@/components/reader/context"
+import { BookProvider } from "@/components/reader/book"
 import Control from "@/components/reader/control"
+import Popup from "@/components/reader/popup"
 import Toolbar from "@/components/reader/toolbar"
 import Viewer from "@/components/reader/viewer"
 import type { Component } from "solid-js"
 
 const Reader: Component = () => {
   return (
-    <ReaderProvider>
+    <BookProvider>
       <Toolbar />
       <Viewer />
       <Control />
-    </ReaderProvider>
+      <Popup />
+    </BookProvider>
   )
 }
 

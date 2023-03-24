@@ -1,13 +1,20 @@
-import { useReaderContext } from "@/components/reader/context"
+import { useBook } from "@/components/reader/book"
+import { useViewerStore } from "@/components/reader/stores"
 import { createBook } from "@/libs/book"
-import { onCleanup, onMount, type Component } from "solid-js"
+import { createEffect, onCleanup, onMount, type Component } from "solid-js"
 
 const Viewer: Component = () => {
-  let ref: HTMLDivElement
-  const { book, setBook } = useReaderContext()
+  let ref: HTMLDivElement | undefined
+
+  const [viewerStore] = useViewerStore()
+  const [book, setBook] = useBook()
 
   onMount(() => {
-    createBook("http://localhost:8000/OPS/content.opf").render(ref).then(setBook)
+    createBook("http://localhost:8000/OPS/content.opf").render(ref!).then(setBook)
+  })
+
+  createEffect(() => {
+    book()?.theme.setFontSize(`${viewerStore.fontSize}%`)
   })
 
   onCleanup(() => {
@@ -16,7 +23,7 @@ const Viewer: Component = () => {
 
   return (
     <div class="absolute inset-12">
-      <div id="viewer" class="h-full w-full dark:hue-rotate-180 dark:invert" ref={ref!}></div>
+      <div id="viewer" class="h-full w-full dark:hue-rotate-180 dark:invert" ref={ref} />
     </div>
   )
 }

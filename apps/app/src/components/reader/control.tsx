@@ -1,10 +1,10 @@
-import { useReaderContext } from "@/components/reader/context"
+import { useBook } from "@/components/reader/book"
 import { IconButton } from "@/components/ui"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
-import { createEffect, type Component } from "solid-js"
+import { type Component } from "solid-js"
 
 const Control: Component = () => {
-  const { book } = useReaderContext()
+  const [book] = useBook()
 
   return (
     <>
