@@ -1,4 +1,4 @@
-import { useBook } from "@/components/reader/book"
+import { useReader } from "@/components/reader/provider"
 import { IconButton, Popover, PopoverContent, PopoverPortal, PopoverTrigger } from "@/components/ui"
 import { NavItem } from "@/libs/book"
 import { As, Collapsible as KCollapsible } from "@kobalte/core"
@@ -66,8 +66,10 @@ const ContentsItem: Component<ContentsItemProps> = (props) => {
 }
 
 const Contents: Component = () => {
-  const [book] = useBook()
-  const [toc] = createResource(book, (book) => book.toc)
+  const book = useReader()
+  const [toc] = createResource(() => book.loaded.navigation.then((nav) => nav.toc))
+
+  const handleNavigation = (href: string) => book.rendition.display(href)
 
   return (
     <Popover>
@@ -84,9 +86,7 @@ const Contents: Component = () => {
           <ul class="mt-2 max-h-96 space-y-1 overflow-y-auto">
             <Show when={!toc.loading}>
               <For each={toc()!}>
-                {(item) => (
-                  <ContentsItem item={item} onItemClick={(href) => book()?.pagination.goto(href)} />
-                )}
+                {(item) => <ContentsItem item={item} onItemClick={handleNavigation} />}
               </For>
             </Show>
           </ul>

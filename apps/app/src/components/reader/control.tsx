@@ -1,10 +1,10 @@
-import { useBook } from "@/components/reader/book"
+import { useReader } from "@/components/reader/provider"
 import { IconButton } from "@/components/ui"
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-solidjs"
-import { type Component } from "solid-js"
+import type { Component } from "solid-js"
 
 const Control: Component = () => {
-  const [book] = useBook()
+  const book = useReader()
 
   return (
     <>
@@ -12,7 +12,7 @@ const Control: Component = () => {
         class="fixed top-1/2 left-4"
         variant="ghost"
         label="Previous Page"
-        onClick={() => book()?.pagination.prev()}
+        onClick={() => book.rendition.prev()}
       >
         <IconChevronLeft />
       </IconButton>
@@ -21,7 +21,7 @@ const Control: Component = () => {
         class="fixed top-1/2 right-4"
         variant="ghost"
         label="Next Page"
-        onClick={() => book()?.pagination.next()}
+        onClick={() => book.rendition.next()}
       >
         <IconChevronRight />
       </IconButton>

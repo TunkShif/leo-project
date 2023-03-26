@@ -1,4 +1,4 @@
-import { useBook } from "@/components/reader/book"
+import { useReader } from "@/components/reader/provider"
 import { useViewerStore } from "@/components/reader/stores"
 import Contents from "@/components/reader/toolbar/contents"
 import { IconButton } from "@/components/ui"
@@ -8,11 +8,11 @@ import { IconArrowNarrowLeft, IconMinus, IconPlus, IconSettings } from "@tabler/
 import { createResource } from "solid-js"
 
 const Toolbar = () => {
-  const [book] = useBook()
+  const book = useReader()
+  const [metadata] = createResource(() => book.loaded.metadata)
+
   const [viewerStore, setViewerStore] = useViewerStore()
   const fontSize = () => viewerStore.fontSize
-
-  const [metadata] = createResource(book, (book) => book.metadata)
 
   const handleIncreaseFontSize = () => {
     if (fontSize() >= 200) return
