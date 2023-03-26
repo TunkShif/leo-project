@@ -10,7 +10,7 @@ import { Show, createSignal, onMount } from "solid-js"
 const Reader = () => {
   let ref: ViewerElement | undefined
 
-  const book = Epub("http://localhost:8000/OPS/content.opf")
+  const book = Epub("/test-book/OPS/content.opf")
 
   const [rendered, setRendered] = createSignal(false)
 

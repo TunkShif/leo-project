@@ -40,7 +40,6 @@ importers:
       radash: ^10.7.1
       react: ^18.2.0
       react-dom: ^18.2.0
-      rxjs: ^7.8.0
       solid-js: ^1.6.15
       storybook: 7.0.0-rc.1
       storybook-dark-mode: ^2.1.1
@@ -60,7 +59,6 @@ importers:
       class-variance-authority: 0.4.0_typescript@4.9.5
       epubjs: 0.3.93
       radash: 10.7.1
-      rxjs: 7.8.0
       solid-js: 1.6.15
       tailwind-merge: 1.10.0
     devDependencies:
@@ -7700,12 +7698,6 @@ packages:
     dependencies:
       queue-microtask: 1.2.3
     dev: true
-
-  /rxjs/7.8.0:
-    resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
-    dependencies:
-      tslib: 2.5.0
-    dev: false
 
   /safe-buffer/5.1.1:
     resolution: {integrity: sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg==}

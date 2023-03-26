@@ -45,7 +45,6 @@
     "class-variance-authority": "^0.4.0",
     "epubjs": "^0.3.93",
     "radash": "^10.7.1",
-    "rxjs": "^7.8.0",
     "solid-js": "^1.6.15",
     "tailwind-merge": "^1.10.0"
   }
