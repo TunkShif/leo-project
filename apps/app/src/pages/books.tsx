@@ -1,5 +1,7 @@
+import { Page, Actions, Content } from "@/components/layout/page"
+import { IconButton } from "@/components/ui"
 import { A } from "@solidjs/router"
-import { IconDots } from "@tabler/icons-solidjs"
+import { IconDots, IconPlus } from "@tabler/icons-solidjs"
 import { For } from "solid-js"
 
 const Book = () => {
@@ -11,7 +13,7 @@ const Book = () => {
         </div>
         <div class="line-clamp-2 text-xs">A Kind of Long Book Title</div>
       </A>
-      <button class="inline-flex w-6 items-center justify-center rounded-full bg-slate-100 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600">
+      <button class="inline-flex w-6 items-center justify-center rounded-full bg-slate-100 transition-colors hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600 dark:active:bg-slate-500">
         <IconDots size={16} />
       </button>
     </div>
@@ -20,11 +22,24 @@ const Book = () => {
 
 const BooksPage = () => {
   return (
-    <div>
-      <div class="grid grid-cols-[repeat(auto-fit,9rem)] gap-4">
-        <For each={Array(50).fill(0)}>{() => <Book />}</For>
-      </div>
-    </div>
+    <Page title="Books">
+      <Actions>
+        <IconButton variant="ghost" size="small" label="Import a New Book">
+          <IconPlus />
+        </IconButton>
+        <IconButton variant="ghost" size="small" label="Settings">
+          <IconDots />
+        </IconButton>
+      </Actions>
+
+      <Content>
+        <div>
+          <div class="grid grid-cols-[repeat(auto-fit,9rem)] gap-4">
+            <For each={Array(50).fill(0)}>{() => <Book />}</For>
+          </div>
+        </div>
+      </Content>
+    </Page>
   )
 }
 

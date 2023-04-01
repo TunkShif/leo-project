@@ -1,4 +1,4 @@
-import DefaultLayout from "@/components/layout/default-layout"
+import Layout from "@/components/layout/layout"
 import BooksPage from "@/pages/books"
 import ReaderPage from "@/pages/reader"
 import { MetaProvider } from "@solidjs/meta"
@@ -10,7 +10,7 @@ const App: Component = () => {
     <MetaProvider>
       <Router>
         <Routes>
-          <Route path="/" component={DefaultLayout}>
+          <Route path="/" component={Layout}>
             <Route
               path="/"
               element={
@@ -22,6 +22,7 @@ const App: Component = () => {
             />
             <Route path="/books" component={BooksPage} />
           </Route>
+
           <Route path="/reader/:id" component={ReaderPage} />
         </Routes>
       </Router>
