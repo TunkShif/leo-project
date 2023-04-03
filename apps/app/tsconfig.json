@@ -9,7 +9,7 @@
     "useDefineForClassFields": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
+    "types": ["vite/client", "wicg-file-system-access"],
     "noEmit": true,
     "isolatedModules": true,
     "paths": {

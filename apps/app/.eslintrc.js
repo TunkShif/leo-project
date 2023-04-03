@@ -3,22 +3,13 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:solid/typescript"
-  ],
+  extends: ["../../.eslintrc.js", "plugin:solid/typescript"],
   overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module"
   },
-  plugins: ["@typescript-eslint", "solid"],
-  rules: {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-namespace": "off"
-  }
+  plugins: ["solid"],
+  rules: {}
 }
