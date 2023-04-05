@@ -34,7 +34,7 @@ const SideBar = () => {
                 <A
                   href={href}
                   activeClass="bg-slate-100 dark:bg-slate-700"
-                  class="text-strong inline-flex h-9 w-full items-center rounded px-2 py-1.5 leading-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
+                  class="text-strong inline-flex h-9 w-full items-center rounded px-2 py-1.5 leading-none transition-colors hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                 >
                   <span class="mr-2">
                     <Icon size={24} />

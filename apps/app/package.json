@@ -35,13 +35,14 @@
     "vite-plugin-solid": "^2.6.1"
   },
   "dependencies": {
-    "@leo-project/core": "workspace:*",
     "@kobalte/core": "^0.7.4",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.1",
     "@tabler/icons-solidjs": "^2.11.0",
     "class-variance-authority": "^0.4.0",
+    "dexie": "^3.2.3",
     "epubjs": "^0.3.93",
+    "purify-ts": "^2.0.0",
     "radash": "^10.7.1",
     "solid-js": "^1.6.15",
     "tailwind-merge": "^1.10.0"

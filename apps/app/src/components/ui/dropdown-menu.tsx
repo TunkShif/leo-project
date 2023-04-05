@@ -1,4 +1,4 @@
-import { styled } from "@/utils/styling"
+import { styled } from "@/utilities/styling"
 import { DropdownMenu as KDropdownMenu } from "@kobalte/core"
 import { content, item, label, separator } from "./styles"
 

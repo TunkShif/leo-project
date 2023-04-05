@@ -1,4 +1,4 @@
-import { delay } from "@/utils/async"
+import { delay } from "@/utilities/async"
 import type { Book, Contents, Location, Rendition } from "epubjs"
 import type { ComponentProps } from "solid-js"
 

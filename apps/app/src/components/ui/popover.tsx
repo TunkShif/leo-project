@@ -1,4 +1,4 @@
-import { styled } from "@/utils/styling"
+import { styled } from "@/utilities/styling"
 import { Popover as KPopover } from "@kobalte/core"
 import { content } from "./styles"
 

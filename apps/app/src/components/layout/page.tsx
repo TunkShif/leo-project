@@ -37,10 +37,10 @@ export const Page: Component<PageProps> = (props) => {
 
   return (
     <>
-      <Title>{props.title}</Title>
-      <header class="sticky top-0 z-10 flex w-full items-center justify-between border-b-[1px] border-slate-900/10 bg-white py-4 px-6 dark:border-white/10 dark:bg-slate-800/90">
-        <div class="text-strong h-8 text-lg font-semibold">{props.title}</div>
-        <div class="space-x-1">{actions()}</div>
+      <Title>{props.title} - Leo Reader</Title>
+      <header class="sticky top-0 z-10 flex w-full items-center justify-between border-b-[1px] border-slate-900/10 bg-white py-3 px-6 dark:border-white/10 dark:bg-slate-800/90">
+        <div class="text-strong text-lg font-semibold">{props.title}</div>
+        <div class="space-x-0.5">{actions()}</div>
       </header>
       <main class="p-8">{content()}</main>
     </>
