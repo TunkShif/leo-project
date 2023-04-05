@@ -1,29 +1,33 @@
-import { Page, Actions, Content } from "@/components/layout/page"
+import BookDisplay from "@/components/books/book-display"
+import { Actions, Content, Page } from "@/components/layout/page"
 import { IconButton } from "@/components/ui"
-import { A } from "@solidjs/router"
+import { FilePicker } from "@/utilities"
+import { useRouteData } from "@solidjs/router"
 import { IconDots, IconPlus } from "@tabler/icons-solidjs"
-import { For } from "solid-js"
+import { MaybeAsync } from "purify-ts"
+import { createResource } from "solid-js"
 
-const Book = () => {
-  return (
-    <div class="flex w-36 flex-col items-center justify-center space-y-2 rounded px-4 py-2 transition-colors hover:bg-slate-200 dark:hover:bg-slate-800">
-      <A href="/reader/blah" class="flex flex-col space-y-2">
-        <div class="h-32 w-28 rounded bg-[linear-gradient(120deg,#a1c4fd_0%,#c2e9fb_100%)]">
-          blah
-        </div>
-        <div class="line-clamp-2 text-xs">A Kind of Long Book Title</div>
-      </A>
-      <button class="inline-flex w-6 items-center justify-center rounded-full bg-slate-100 transition-colors hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600 dark:active:bg-slate-500">
-        <IconDots size={16} />
-      </button>
-    </div>
-  )
+export const BooksData = () => {
+  const [books, { refetch: refetchBooks }] = createResource(() => Leo.service.book.list())
+
+  return {
+    books,
+    refetchBooks
+  }
 }
 
-const BooksPage = () => {
-  const handleImport = async () => {
-    const result = await Leo.service.book.import()
-    console.log(result)
+export const useBooksData = () => useRouteData<typeof BooksData>()
+
+export const BooksPage = () => {
+  const { refetchBooks } = useBooksData()
+
+  const handleImport = () => {
+    MaybeAsync(async ({ fromPromise }) => {
+      const handle = await fromPromise(FilePicker.open())
+      return await Leo.service.book.import(handle)
+    })
+      .ifJust(() => refetchBooks())
+      .run()
   }
 
   return (
@@ -38,14 +42,8 @@ const BooksPage = () => {
       </Actions>
 
       <Content>
-        <div>
-          <div class="grid grid-cols-[repeat(auto-fit,9rem)] gap-4">
-            <For each={Array(50).fill(0)}>{() => <Book />}</For>
-          </div>
-        </div>
+        <BookDisplay />
       </Content>
     </Page>
   )
 }
-
-export default BooksPage

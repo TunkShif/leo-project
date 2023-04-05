@@ -1,11 +1,13 @@
 import { useReader } from "@/components/reader/provider"
 import { IconButton, Popover, PopoverContent, PopoverPortal, PopoverTrigger } from "@/components/ui"
-import { NavItem } from "@/libs/book"
 import { As, Collapsible as KCollapsible } from "@kobalte/core"
 import { IconChevronRight, IconList } from "@tabler/icons-solidjs"
+import type { NavItem } from "epubjs"
 import { For, Match, Show, Switch, createResource, type Component } from "solid-js"
 
-// [TODO) scrollbar styling
+// TODO: scrollbar styling
+// FIXME: nav not working for some epub files
+// FIXME: nav item width shift
 
 type ContentsItemProps = {
   item: NavItem
@@ -80,7 +82,7 @@ const Contents: Component = () => {
       </PopoverTrigger>
 
       <PopoverPortal>
-        <PopoverContent class="w-80 py-2 px-2" onOpenAutoFocus={(e) => e.preventDefault()}>
+        <PopoverContent class="w-80 px-2 py-2" onOpenAutoFocus={(e) => e.preventDefault()}>
           <h2 class="text-subtle select-none px-2 text-sm font-medium">CONTENTS</h2>
 
           <ul class="mt-2 max-h-96 space-y-1 overflow-y-auto">

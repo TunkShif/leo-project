@@ -4,33 +4,37 @@ import { ReaderProvider } from "@/components/reader/provider"
 import Toolbar from "@/components/reader/toolbar"
 import "@/components/reader/viewer"
 import type { ViewerElement } from "@/components/reader/viewer"
-import Epub from "epubjs"
-import { Show, createSignal, onMount } from "solid-js"
+import { useReaderData } from "@/pages/reader"
+import { Show, createEffect, createSignal } from "solid-js"
 
 const Reader = () => {
   let ref: ViewerElement | undefined
 
-  const book = Epub("/test-book/OPS/content.opf")
+  const book = useReaderData()
 
   const [rendered, setRendered] = createSignal(false)
 
-  onMount(() => {
-    ref!.render(book).then(() => setRendered(true))
+  createEffect(() => {
+    if (book.loading) return
+    console.log(book())
+    ref!.render(book()!).then(() => setRendered(true))
   })
 
   return (
-    <ReaderProvider value={book}>
-      <div class="absolute inset-12">
-        <epub-viewer class="h-full w-full dark:hue-rotate-180 dark:invert" ref={ref} />
-      </div>
+    <Show when={!book.loading}>
+      <ReaderProvider value={book()}>
+        <div class="absolute inset-12">
+          <epub-viewer class="h-full w-full dark:hue-rotate-180 dark:invert" ref={ref} />
+        </div>
 
-      <Toolbar />
-      <Control />
+        <Toolbar />
+        <Control />
 
-      <Show when={rendered()}>
-        <Popup />
-      </Show>
-    </ReaderProvider>
+        <Show when={rendered()}>
+          <Popup />
+        </Show>
+      </ReaderProvider>
+    </Show>
   )
 }
 

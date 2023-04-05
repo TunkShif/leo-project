@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/layout"
-import BooksPage from "@/pages/books"
-import ReaderPage from "@/pages/reader"
+import { BooksData, BooksPage } from "@/pages/books"
+import { ReaderData, ReaderPage } from "@/pages/reader"
 import { MetaProvider } from "@solidjs/meta"
 import { A, Route, Router, Routes } from "@solidjs/router"
 import type { Component } from "solid-js"
@@ -20,10 +20,10 @@ const App: Component = () => {
                 </>
               }
             />
-            <Route path="/books" component={BooksPage} />
+            <Route path="/books" component={BooksPage} data={BooksData} />
           </Route>
 
-          <Route path="/reader/:id" component={ReaderPage} />
+          <Route path="/reader/:id" component={ReaderPage} data={ReaderData} />
         </Routes>
       </Router>
     </MetaProvider>

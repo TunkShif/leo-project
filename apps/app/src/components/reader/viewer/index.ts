@@ -110,6 +110,7 @@ export class ViewerElement extends HTMLElement {
     const { right, top, height } = rects.item(rects.length - 1)!
     const { left: offsetX, top: offsetY } = this._iframe.getBoundingClientRect()
 
+    // TODO: properly calculate position when iframe can scroll
     this.dispatchEvent(
       new CustomEvent("epub:selected", {
         detail: {
@@ -133,7 +134,7 @@ export class ViewerElement extends HTMLElement {
   }
 
   private _handleContextMenu(e: Event) {
-    console.log(e)
+    // TODO: make it optional
     e.preventDefault()
   }
 }

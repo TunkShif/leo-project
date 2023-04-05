@@ -1,6 +1,6 @@
 import { createIDB } from "@/core/databases/idb"
+import { IDBBookRepo } from "@/core/repos/book-repo"
 import { BookService } from "@/core/services/book-service"
-import { FileSystemAccessStorage } from "@/core/storages/fsa"
 
 export type AppCore = {
   service: {
@@ -10,12 +10,8 @@ export type AppCore = {
 
 export const createApp = (): AppCore => {
   const idb = createIDB()
-
-  const fsaStorage = new FileSystemAccessStorage({ idb })
-
-  const bookService = new BookService({
-    storage: fsaStorage
-  })
+  const bookRepo = new IDBBookRepo(idb)
+  const bookService = new BookService(bookRepo)
 
   return {
     service: {
