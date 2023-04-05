@@ -1,5 +1,6 @@
 /* @refresh reload */
 import App from "@/app"
+import "@/init"
 import { render } from "solid-js/web"
 
 import "@/index.css"

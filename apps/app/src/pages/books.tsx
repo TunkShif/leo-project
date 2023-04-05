@@ -21,13 +21,18 @@ const Book = () => {
 }
 
 const BooksPage = () => {
+  const handleImport = async () => {
+    const result = await Leo.service.book.import()
+    console.log(result)
+  }
+
   return (
     <Page title="Books">
       <Actions>
-        <IconButton variant="ghost" size="small" label="Import a New Book">
+        <IconButton variant="ghost" size="base" label="Import a New Book" onClick={handleImport}>
           <IconPlus />
         </IconButton>
-        <IconButton variant="ghost" size="small" label="Settings">
+        <IconButton variant="ghost" size="base" label="Settings">
           <IconDots />
         </IconButton>
       </Actions>
