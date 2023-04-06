@@ -1,12 +1,12 @@
 import { useReader } from "@/components/reader/provider"
 import { IconButton, Popover, PopoverContent, PopoverPortal, PopoverTrigger } from "@/components/ui"
+import { EPUB } from "@/utilities"
 import { As, Collapsible as KCollapsible } from "@kobalte/core"
 import { IconChevronRight, IconList } from "@tabler/icons-solidjs"
 import type { NavItem } from "epubjs"
 import { For, Match, Show, Switch, createResource, type Component } from "solid-js"
 
 // TODO: scrollbar styling
-// FIXME: nav not working for some epub files
 // FIXME: nav item width shift
 
 type ContentsItemProps = {
@@ -69,9 +69,11 @@ const ContentsItem: Component<ContentsItemProps> = (props) => {
 
 const Contents: Component = () => {
   const book = useReader()
+  const navPath = () => book.packaging.navPath || book.packaging.ncxPath
   const [toc] = createResource(() => book.loaded.navigation.then((nav) => nav.toc))
 
-  const handleNavigation = (href: string) => book.rendition.display(href)
+  const handleNavigation = (href: string) =>
+    book.rendition.display(EPUB.resolveHref(href, navPath()))
 
   return (
     <Popover>

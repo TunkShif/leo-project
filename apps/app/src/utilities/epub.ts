@@ -25,3 +25,9 @@ export const cover = (book: Book) =>
     const response = await fetch(url)
     return await response.blob()
   }).run()
+
+// @see https://github.com/futurepress/epub.js/issues/1084
+export const resolveHref = (href: string, navPath: string) => {
+  const placeholder = "https://foo.bar/"
+  return new URL(href, placeholder + navPath).href.replace(placeholder, "")
+}

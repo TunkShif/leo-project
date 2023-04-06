@@ -16,7 +16,6 @@ const Reader = () => {
 
   createEffect(() => {
     if (book.loading) return
-    console.log(book())
     ref!.render(book()!).then(() => setRendered(true))
   })
 

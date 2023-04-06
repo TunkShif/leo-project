@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TODO: properly setup inter fonts */
+
 @layer base {
   body {
     @apply bg-gray-50 text-slate-700 dark:bg-slate-900 dark:text-slate-400;
