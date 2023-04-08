@@ -1,11 +1,12 @@
 import Layout from "@/components/layout/layout"
-import { BooksPage } from "@/pages/books"
 import { BooksData } from "@/pages/books.data"
-import { ReaderPage } from "@/pages/reader"
 import { ReaderData } from "@/pages/reader.data"
 import { MetaProvider } from "@solidjs/meta"
 import { A, Route, Router, Routes } from "@solidjs/router"
-import { Component } from "solid-js"
+import { Component, lazy } from "solid-js"
+
+const BooksPage = lazy(() => import("@/pages/books"))
+const ReaderPage = lazy(() => import("@/pages/reader"))
 
 export const App: Component = () => {
   return (

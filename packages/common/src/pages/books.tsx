@@ -6,7 +6,7 @@ import { useBookService } from "@/services"
 import { FilePicker } from "@/utilities/file-picker"
 import { IconDots, IconPlus } from "@tabler/icons-solidjs"
 
-export const BooksPage = () => {
+const BooksPage = () => {
   const BookService = useBookService()
   const { refetchBooks } = useBooksData()
 
@@ -36,3 +36,5 @@ export const BooksPage = () => {
     </Page>
   )
 }
+
+export default BooksPage
