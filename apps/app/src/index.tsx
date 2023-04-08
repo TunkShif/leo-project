@@ -1,9 +1,10 @@
 /* @refresh reload */
-import App from "@/app"
-import "@/init"
 import { render } from "solid-js/web"
 
-import "@/index.css"
+import { App } from "@leo-project/common"
+
+import "@/preload"
+import "@leo-project/common/dist/index.css"
 
 const root = document.getElementById("root")
 

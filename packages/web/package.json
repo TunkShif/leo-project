@@ -1,0 +1,19 @@
+{
+  "name": "@leo-project/web",
+  "version": "1.0.0",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0"
+  },
+  "dependencies": {
+    "@leo-project/core": "workspace:*",
+    "dexie": "^3.2.3",
+    "purify-ts": "^2.0.0",
+    "ts-pattern": "^4.2.2"
+  }
+}

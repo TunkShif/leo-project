@@ -1,0 +1,50 @@
+{
+  "name": "@leo-project/common",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.jsx",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "storybook": "storybook dev -p 6006"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@kobalte/tailwindcss": "^0.5.0",
+    "@storybook/addon-essentials": "7.0.0-rc.1",
+    "@storybook/addon-interactions": "7.0.0-rc.1",
+    "@storybook/addon-links": "7.0.0-rc.1",
+    "@storybook/blocks": "7.0.0-alpha.8",
+    "@storybook/testing-library": "0.0.14-next.1",
+    "@storybook/theming": "^6.5.16",
+    "@types/node": "^18.15.5",
+    "autoprefixer": "^10.4.14",
+    "babel-preset-solid": "^1.6.13",
+    "eslint-plugin-solid": "^0.11.0",
+    "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "7.0.0-rc.1",
+    "storybook-dark-mode": "^2.1.1",
+    "storybook-solidjs": "1.0.0-beta.1",
+    "storybook-solidjs-vite": "1.0.0-beta.1",
+    "tailwindcss": "^3.3.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.1",
+    "vite-plugin-solid": "^2.6.1"
+  },
+  "dependencies": {
+    "@leo-project/core": "workspace:*",
+    "@kobalte/core": "^0.7.4",
+    "@solidjs/meta": "^0.28.2",
+    "@solidjs/router": "^0.7.1",
+    "@tabler/icons-solidjs": "^2.11.0",
+    "class-variance-authority": "^0.4.0",
+    "epubjs": "^0.3.93",
+    "solid-js": "^1.6.15",
+    "tailwind-merge": "^1.10.0",
+    "ts-pattern": "^4.2.2"
+  }
+}
