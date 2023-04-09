@@ -1,0 +1,23 @@
+{
+  "name": "@leo-project/tauri",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@leo-project/common": "workspace:*",
+    "@leo-project/desktop": "workspace:*",
+    "@tauri-apps/api": "^1.2.0",
+    "solid-js": "^1.7.3"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.2.3",
+    "@types/node": "^18.15.11",
+    "typescript": "^4.9.5",
+    "vite": "^4.2.1",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}
