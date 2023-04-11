@@ -1,3 +1,5 @@
+import Content from "@/components/reader/popup/content"
+import { PopupProvider } from "@/components/reader/popup/provider"
 import type { SelectionChangedEvent, ViewerElement } from "@/components/reader/viewer"
 import { IconButton, Popover, PopoverContent, PopoverPortal, PopoverTrigger } from "@/components/ui"
 import { As } from "@kobalte/core"
@@ -12,16 +14,15 @@ const Popup = () => {
   // so we can safely query the epub viewer element here.
   const viewer = document.querySelector<ViewerElement>("epub-viewer")!
 
-  const position = from<{ x: number; y: number }>((set) => {
+  const event = from<SelectionChangedEvent["detail"]>((set) => {
     const handler = (event: Event) => {
-      const {
-        detail: { position }
-      } = event as SelectionChangedEvent
-      set(position)
+      const { detail } = event as SelectionChangedEvent
+      set(detail)
       setShow(true)
     }
 
     viewer.addEventListener("epub:selected", handler)
+
     return () => viewer.removeEventListener("epub:selected", handler)
   })
 
@@ -29,35 +30,38 @@ const Popup = () => {
     const handler = () => setShow(false)
 
     viewer.addEventListener("epub:cleared", handler)
+
     onCleanup(() => viewer.removeEventListener("epub:cleared", handler))
   })
 
   return (
     <Portal>
       <Show when={show()}>
-        <Popover gutter={8} placement="right-start">
-          <PopoverTrigger asChild>
-            <As
-              component={IconButton}
-              label="Popup Trigger"
-              variant="outline"
-              class="opacity-90"
-              style={{
-                position: "absolute",
-                top: `${position()?.y ?? 0}px`,
-                left: `${position()?.x ?? 0}px`
-              }}
-            >
-              <IconBalloon />
-            </As>
-          </PopoverTrigger>
+        <PopupProvider value={event}>
+          <Popover gutter={8} placement="right-start">
+            <PopoverTrigger asChild>
+              <As
+                component={IconButton}
+                label="Popup Trigger"
+                variant="outline"
+                class="opacity-90"
+                style={{
+                  position: "absolute",
+                  top: `${event()?.position.y ?? 0}px`,
+                  left: `${event()?.position.x ?? 0}px`
+                }}
+              >
+                <IconBalloon />
+              </As>
+            </PopoverTrigger>
 
-          <PopoverPortal>
-            <PopoverContent>
-              <p>Popup Content</p>
-            </PopoverContent>
-          </PopoverPortal>
-        </Popover>
+            <PopoverPortal>
+              <PopoverContent class="w-96 px-4 py-2">
+                <Content />
+              </PopoverContent>
+            </PopoverPortal>
+          </Popover>
+        </PopupProvider>
       </Show>
     </Portal>
   )

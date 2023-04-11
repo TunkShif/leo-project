@@ -17,16 +17,16 @@ export type CFIRange = string
 export type RelocatedEvent = CustomEvent<Location>
 export type SelectionChangedEvent = CustomEvent<{
   text: string
+  context: string
   cfiRange: CFIRange
   position: { x: number; y: number }
 }>
 export type SelectionClearedEvent = CustomEvent<undefined>
 
 export class ViewerElement extends HTMLElement {
-  private declare _book: Book
-  private declare _rendition: Rendition
+  #rendition!: Rendition
 
-  private _viewer: HTMLDivElement
+  #viewer: HTMLDivElement
 
   constructor() {
     super()
@@ -47,74 +47,70 @@ export class ViewerElement extends HTMLElement {
       }
     `
 
-    this._viewer = viewer
+    this.#viewer = viewer
 
     shadow.appendChild(style)
     shadow.appendChild(viewer)
-
-    this._handleRelocated = this._handleRelocated.bind(this)
-    this._handleSelectionChanged = this._handleSelectionChanged.bind(this)
-    this._handleSelectionCleared = this._handleSelectionCleared.bind(this)
-    this._handleContextMenu = this._handleContextMenu.bind(this)
   }
 
   async render(book: Book) {
-    this._book = book
-    this._rendition = book.renderTo(this._viewer, {
+    this.#rendition = book.renderTo(this.#viewer, {
       width: "100%",
       height: "100%",
       allowScriptedContent: true
     })
-    await this._rendition.display()
-    this._addEventListeners()
+    await this.#rendition.display()
+    this.#addEventListeners()
   }
 
   disconnectedCallback() {
-    this._removeEventListeners()
-    this._rendition.destroy()
+    this.#removeEventListeners()
+    this.#rendition.destroy()
   }
 
-  private get _iframe() {
+  get #iframe() {
     return this.shadowRoot!.querySelector("iframe")!
   }
 
-  private _addEventListeners() {
-    this._rendition.on("relocated", this._handleRelocated)
-    this._rendition.on("selected", this._handleSelectionChanged)
+  #addEventListeners() {
+    this.#rendition.on("relocated", this.#handleRelocated)
+    this.#rendition.on("selected", this.#handleSelectionChanged)
 
-    this._rendition.hooks.content.register((contents: Contents) => {
+    this.#rendition.hooks.content.register((contents: Contents) => {
       console.debug("[epub-viewer] register content hook")
       contents.document.addEventListener("selectionchange", () =>
-        this._handleSelectionCleared(contents)
+        this.#handleSelectionCleared(contents)
       )
-      contents.document.addEventListener("contextmenu", this._handleContextMenu)
+      contents.document.addEventListener("contextmenu", this.#handleContextMenu)
     })
   }
 
-  private _removeEventListeners() {
-    this._rendition.off("relocated", this._handleRelocated)
-    this._rendition.off("selected", this._handleSelectionChanged)
+  #removeEventListeners() {
+    this.#rendition.off("relocated", this.#handleRelocated)
+    this.#rendition.off("selected", this.#handleSelectionChanged)
 
-    this._rendition.hooks.content.clear()
+    this.#rendition.hooks.content.clear()
   }
 
-  private _handleRelocated(location: Location) {
+  #handleRelocated = (location: Location) => {
     this.dispatchEvent(new CustomEvent("epub:relocated", { detail: location }))
   }
 
-  private _handleSelectionChanged(cfiRange: string, contents: Contents) {
+  #handleSelectionChanged = (cfiRange: string, contents: Contents) => {
     const selection = contents.window.getSelection()!
     const text = selection.toString()
+    const context = this.#getSelectedTextContext(selection)
     const rects = selection.getRangeAt(0).getClientRects()
 
     const { right, top, height } = rects.item(rects.length - 1)!
-    const { left: offsetX, top: offsetY } = this._iframe.getBoundingClientRect()
+    const { left: offsetX, top: offsetY } = this.#iframe.getBoundingClientRect()
 
     // TODO: properly calculate position when iframe can scroll
     this.dispatchEvent(
       new CustomEvent("epub:selected", {
         detail: {
           text,
+          context,
           cfiRange,
           position: {
             x: right + offsetX,
@@ -125,7 +121,7 @@ export class ViewerElement extends HTMLElement {
     )
   }
 
-  private async _handleSelectionCleared(contents: Contents) {
+  #handleSelectionCleared = async (contents: Contents) => {
     await delay(10)
     const selection = contents.window.getSelection()
     if (selection === null || selection.isCollapsed) {
@@ -133,10 +129,25 @@ export class ViewerElement extends HTMLElement {
     }
   }
 
-  private _handleContextMenu(e: Event) {
-    // TODO: make it optional
+  // TODO: make it optional
+  #handleContextMenu = (e: Event) => {
     e.preventDefault()
   }
+
+  // TODO: improvement on context text extraction logic needed
+  #getSelectedTextContext(selection: Selection) {
+    const range = selection.getRangeAt(0)
+    const text = range.commonAncestorContainer.textContent!
+
+    let i = range.startOffset
+    let j = range.endOffset
+    while (j < text.length && !ENDING_PUNCTUATIONS.includes(text[j])) j++
+    while (i > 0 && !ENDING_PUNCTUATIONS.includes(text[i - 1])) i--
+
+    return text.slice(i, j + 1)
+  }
 }
+
+const ENDING_PUNCTUATIONS = `.?!;。`
 
 customElements.define("epub-viewer", ViewerElement)
