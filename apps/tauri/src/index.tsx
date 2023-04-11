@@ -14,4 +14,5 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   )
 }
 
+// TODO: render root after service registration is done
 render(() => <App />, root!)

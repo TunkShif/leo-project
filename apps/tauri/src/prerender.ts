@@ -1,8 +1,8 @@
 import { Leo } from "@leo-project/common"
-import { BookService, createDatabase, createRepo } from "@leo-project/desktop"
+import { BookService, createDatabase, createDataFolders } from "@leo-project/desktop"
 
-createDatabase()
-  .then((db) => createRepo(db))
-  .then((repo) => {
-    Leo.register("book-service", new BookService(repo))
+createDataFolders()
+  .then(createDatabase)
+  .then((db) => {
+    Leo.register("book-service", new BookService(db))
   })

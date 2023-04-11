@@ -17,7 +17,7 @@ export class BookService implements IBookService {
       binary = await file.arrayBuffer()
     }
 
-    if (file instanceof FileSystemFileHandle) {
+    if (window.FileSystemFileHandle !== undefined && file instanceof FileSystemFileHandle) {
       source = { type: "fsa", handle: file }
       binary = await file.getFile().then((f) => f.arrayBuffer())
     }

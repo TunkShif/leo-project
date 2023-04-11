@@ -1,6 +1,10 @@
 {
   "name": "leo-project",
   "private": true,
+  "scripts": {
+    "dev:app": "turbo run dev --filter=@leo-project/app...",
+    "build:app": "turbo run build --filter=@leo-project/app..."
+  },
   "devDependencies": {
     "@types/wicg-file-system-access": "^2020.9.5",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
@@ -8,6 +12,7 @@
     "eslint": "^8.37.0",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3",
+    "turbo": "^1.8.8",
     "typescript": "^5.0.3"
   }
 }

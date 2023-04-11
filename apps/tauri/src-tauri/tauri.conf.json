@@ -16,9 +16,9 @@
       "path": {
         "all": true
       },
-      "shell": {
-        "all": false,
-        "open": true
+      "fs": {
+        "all": true,
+        "scope": ["$APPDATA/**/*"]
       }
     },
     "bundle": {

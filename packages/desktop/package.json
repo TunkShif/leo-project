@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@leo-project/core": "workspace:*",
-    "drizzle-orm": "^0.23.8",
+    "@tauri-apps/api": "^1.2.0",
+    "nanoid": "^4.0.2",
     "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql"
   }
 }

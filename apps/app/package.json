@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build-all": "pnpm --filter @leo-project/app... build"
+    "build:ci": "pnpm --filter @leo-project/app... build"
   },
   "devDependencies": {
     "typescript": "^4.9.5",
