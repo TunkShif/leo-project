@@ -7,7 +7,6 @@ import type { NavItem } from "epubjs"
 import { For, Match, Show, Switch, createResource, type Component } from "solid-js"
 
 // TODO: scrollbar styling
-// FIXME: nav item width shift
 
 type ContentsItemProps = {
   item: NavItem
@@ -30,7 +29,7 @@ const ContentsItem: Component<ContentsItemProps> = (props) => {
                 />
               </KCollapsible.Trigger>
               <button
-                class="-ml-1 h-6 w-full flex-1 rounded px-1.5 py-1 text-start text-xs hover:bg-slate-100 dark:hover:bg-slate-700"
+                class="-ml-1 h-6 w-[90%] flex-1 rounded px-1.5 py-1 text-start text-xs hover:bg-slate-100 dark:hover:bg-slate-700"
                 onClick={() => props.onItemClick(props.item.href)}
               >
                 <span class="inline-block w-[90%] select-none overflow-hidden text-ellipsis whitespace-nowrap">
@@ -53,7 +52,7 @@ const ContentsItem: Component<ContentsItemProps> = (props) => {
         <li>
           <div class="flex w-full items-center overflow-x-hidden rounded">
             <button
-              class="ml-5 h-6 w-full flex-1 select-none rounded px-1.5 py-1 text-start text-xs hover:bg-slate-100 dark:hover:bg-slate-700"
+              class="ml-5 h-6 w-[90%] flex-1 select-none rounded px-1.5 py-1 text-start text-xs hover:bg-slate-100 dark:hover:bg-slate-700"
               onClick={() => props.onItemClick(props.item.href)}
             >
               <span class="inline-block w-[90%] select-none overflow-hidden text-ellipsis whitespace-nowrap">

@@ -4,6 +4,7 @@ import { RouteDataFuncArgs, useRouteData } from "@solidjs/router"
 import { createResource } from "solid-js"
 
 // TODO: to be implemented
+// FIXME: check file permission before open
 export const ReaderData = ({ params }: RouteDataFuncArgs) => {
   const BookService = useBookService()
 
