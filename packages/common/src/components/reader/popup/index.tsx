@@ -56,7 +56,7 @@ const Popup = () => {
             </PopoverTrigger>
 
             <PopoverPortal>
-              <PopoverContent class="w-96 px-4 py-2">
+              <PopoverContent class="w-96">
                 <Content />
               </PopoverContent>
             </PopoverPortal>

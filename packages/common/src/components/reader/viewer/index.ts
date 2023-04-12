@@ -102,6 +102,8 @@ export class ViewerElement extends HTMLElement {
     const context = this.#getSelectedTextContext(selection)
     const rects = selection.getRangeAt(0).getClientRects()
 
+    if (text.trim().length === 0) return
+
     const { right, top, height } = rects.item(rects.length - 1)!
     const { left: offsetX, top: offsetY } = this.#iframe.getBoundingClientRect()
 

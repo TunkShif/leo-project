@@ -8,6 +8,7 @@ export class BookService implements IBookService {
     this.#db = db
   }
 
+  // TODO: migrate to OPFS (Origin Private File System) for better compability
   async import(file: File | FileSystemFileHandle): Promise<Book> {
     let binary!: ArrayBuffer
     let source!: Book["source"]
