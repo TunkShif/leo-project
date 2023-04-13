@@ -3,15 +3,25 @@ import { Actions, Content, Page } from "@/components/layout/page"
 import { IconButton } from "@/components/ui"
 import { useBooksData } from "@/pages/books.data"
 import { useBookService } from "@/services"
-import { FilePicker } from "@/utilities/file-picker"
 import { IconDots, IconPlus } from "@tabler/icons-solidjs"
 
 const BooksPage = () => {
   const BookService = useBookService()
   const { refetchBooks } = useBooksData()
 
+  const showFilePicker = () =>
+    new Promise<File | null>((resolve) => {
+      const input = document.createElement("input")
+      input.type = "file"
+      input.accept = "application/epub+zip"
+      input.addEventListener("change", () => {
+        resolve(input.files?.[0] ?? null)
+      })
+      input.click()
+    })
+
   const handleImport = async () => {
-    const file = await FilePicker.open()
+    const file = await showFilePicker()
     // TODO: error handling
     if (!file) return
 

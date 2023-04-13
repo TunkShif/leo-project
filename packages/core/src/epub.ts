@@ -1,16 +1,15 @@
 import type { Book } from "@/models"
+import { OPFS } from "@/opfs"
 import Epub, { type Book as EpubBook } from "epubjs"
 import { match } from "ts-pattern"
 
 export const EPUB = {
+  // TODO: other sources
   open(book: Book) {
     return match(book.source)
-      .with({ type: "idb" }, ({ binary }) => Promise.resolve(EPUB.load(binary)))
-      .with({ type: "fsa" }, async ({ handle }) => {
-        // TODO: handle request permission
-        await handle.requestPermission()
-        const file = await handle.getFile()
-        return EPUB.load(await file.arrayBuffer())
+      .with({ type: "opfs" }, async ({ path }) => {
+        const file = await OPFS.readFile(path)
+        return file && this.load(await file.arrayBuffer())
       })
       .run()
   },

@@ -1,5 +1,6 @@
 import { db, type AppDatabase } from "@/database"
-import { EPUB, type Book, type IBookService } from "@leo-project/core"
+import { EPUB, OPFS, type Book, type IBookService } from "@leo-project/core"
+import { nanoid } from "nanoid"
 
 export class BookService implements IBookService {
   #db: AppDatabase
@@ -8,24 +9,13 @@ export class BookService implements IBookService {
     this.#db = db
   }
 
-  // TODO: migrate to OPFS (Origin Private File System) for better compability
-  async import(file: File | FileSystemFileHandle): Promise<Book> {
-    let binary!: ArrayBuffer
-    let source!: Book["source"]
-
-    if (file instanceof File) {
-      source = { type: "idb", binary }
-      binary = await file.arrayBuffer()
-    }
-
-    if (window.FileSystemFileHandle !== undefined && file instanceof FileSystemFileHandle) {
-      source = { type: "fsa", handle: file }
-      binary = await file.getFile().then((f) => f.arrayBuffer())
-    }
-
+  async import(file: File): Promise<Book> {
+    const binary = await file.arrayBuffer()
     const epub = EPUB.load(binary)
     const name = (await epub.loaded.metadata).title
     const cover = await EPUB.getCoverImage(epub)
+    const path = `/books/${nanoid(5)}-${file.name}`
+    const source = { type: "opfs", path } as const
 
     const book: Book = {
       name,
@@ -33,8 +23,8 @@ export class BookService implements IBookService {
       source
     }
 
-    const id = await this.#db.books.put(book)
-    book.id = id
+    book.id = await this.#db.books.put(book)
+    await OPFS.writeFile(path, binary)
 
     epub.destroy()
     return book
