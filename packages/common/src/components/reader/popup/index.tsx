@@ -38,7 +38,7 @@ const Popup = () => {
     <Portal>
       <Show when={show()}>
         <PopupProvider value={event}>
-          <Popover gutter={8} placement="right-start">
+          <Popover gutter={8} placement="right-start" overlap slide>
             <PopoverTrigger asChild>
               <As
                 component={IconButton}

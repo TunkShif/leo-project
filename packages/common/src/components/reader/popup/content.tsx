@@ -2,7 +2,6 @@ import { usePopupContext } from "@/components/reader/popup/provider"
 import { IconButton } from "@/components/ui"
 import { IconEdit } from "@tabler/icons-solidjs"
 
-// TODO: text wrap balancer
 // TODO: long selected text styling
 
 const Content = () => {
