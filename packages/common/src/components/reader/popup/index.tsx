@@ -1,8 +1,8 @@
 import Content from "@/components/reader/popup/content"
 import { PopupProvider } from "@/components/reader/popup/provider"
 import type { SelectionChangedEvent, ViewerElement } from "@/components/reader/viewer"
-import { IconButton, Popover, PopoverContent, PopoverPortal, PopoverTrigger } from "@/components/ui"
-import { As } from "@kobalte/core"
+import { IconButton } from "@/components/ui"
+import { As, Popover as KPopover } from "@kobalte/core"
 import { IconBalloon } from "@tabler/icons-solidjs"
 import { Show, createEffect, createSignal, from, onCleanup } from "solid-js"
 import { Portal } from "solid-js/web"
@@ -38,8 +38,8 @@ const Popup = () => {
     <Portal>
       <Show when={show()}>
         <PopupProvider value={event}>
-          <Popover gutter={8} placement="right-start" overlap slide>
-            <PopoverTrigger asChild>
+          <KPopover.Root gutter={8} placement="right-start" overlap slide>
+            <KPopover.Trigger asChild>
               <As
                 component={IconButton}
                 label="Popup Trigger"
@@ -53,14 +53,14 @@ const Popup = () => {
               >
                 <IconBalloon />
               </As>
-            </PopoverTrigger>
+            </KPopover.Trigger>
 
-            <PopoverPortal>
-              <PopoverContent class="w-96">
+            <KPopover.Portal>
+              <KPopover.Content>
                 <Content />
-              </PopoverContent>
-            </PopoverPortal>
-          </Popover>
+              </KPopover.Content>
+            </KPopover.Portal>
+          </KPopover.Root>
         </PopupProvider>
       </Show>
     </Portal>

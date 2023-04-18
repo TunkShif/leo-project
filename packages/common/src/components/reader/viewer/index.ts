@@ -152,4 +152,6 @@ export class ViewerElement extends HTMLElement {
 
 const ENDING_PUNCTUATIONS = `.?!;。`
 
-customElements.define("epub-viewer", ViewerElement)
+if (!customElements.get("epub-viewer")) {
+  customElements.define("epub-viewer", ViewerElement)
+}

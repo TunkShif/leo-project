@@ -1,10 +1,11 @@
 /* @refresh reload */
+import { App, Leo } from "@leo-project/common"
+import { BookService } from "@leo-project/web"
 import { render } from "solid-js/web"
 
-import { App } from "@leo-project/common"
-
-import "@/prerender"
 import "@leo-project/common/dist/index.css"
+
+Leo.register("book-service", new BookService())
 
 const root = document.getElementById("root")
 
